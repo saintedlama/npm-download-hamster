@@ -1,0 +1,19 @@
+{
+  "name": "npm-download-hamster",
+  "version": "1.0.0",
+  "description": "Provide useful statistics on npm package downloads",
+  "repository": "saintedlama/npm-download-hamster",
+  "bin": "bin.js",
+  "author": "'Christoph Walcher <'christoph.walcher@gmail.com'>",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.5.0",
+    "cli-table": "^0.3.1",
+    "colors": "^1.1.2",
+    "moment": "^2.10.6",
+    "npm-download-counts": "^0.1.1",
+    "npm-registry": "^0.1.13",
+    "progress": "^1.1.8",
+    "yargs": "^3.25.0"
+  }
+}
