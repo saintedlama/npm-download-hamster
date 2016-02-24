@@ -19,7 +19,10 @@ module.exports = function userDownloadCounts(username, registry) {
 
     async.mapSeries(pkgs, function(pkg, next) {
       downloadCounts(pkg.name, start, end, function(err, data) {
-        if (err) { return next(err); }
+        if (err) {
+          bar.tick();
+          return next();
+        }
 
         var sum = data.reduce((s, x) => s + x.count, 0);
 
@@ -36,6 +39,7 @@ module.exports = function userDownloadCounts(username, registry) {
 
       bar.terminate();
 
+      results = results.filter(r => r);
       results.sort((x, y) => y.sum - x.sum);
 
       var table = new Table({
@@ -50,4 +54,4 @@ module.exports = function userDownloadCounts(username, registry) {
       console.log(table.toString());
     });
   });
-}
+};
